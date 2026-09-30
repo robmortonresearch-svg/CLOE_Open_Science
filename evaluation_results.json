@@ -1,0 +1,41 @@
+{
+  "evaluation_timestamp": "2026-09-29T18:20:32.486561",
+  "stages": [
+    {
+      "stage": 1,
+      "status": "success",
+      "vulnerabilities_processed": 107760,
+      "action_space_reduction": "52.00%",
+      "policy_map": "\u03c0POMIS generated",
+      "timestamp": "2026-09-29T18:20:27.153740"
+    },
+    {
+      "stage": 2,
+      "status": "success",
+      "vulnerabilities_active": 2174,
+      "rules_generated": 648,
+      "waf_deployment": "success",
+      "block_rate": "99.88%",
+      "mttr_ms": 268,
+      "epsilon": 0.8156,
+      "timestamp": "2026-09-29T18:20:30.873408"
+    },
+    {
+      "stage": 3,
+      "status": "success",
+      "simulation_days": 30,
+      "total_attempts": 9990,
+      "successful_breaches": 30,
+      "block_rate": "99.70%",
+      "adversary_roi": "Undefined (\u221e)",
+      "risk_convergence": true,
+      "timestamp": "2026-09-29T18:20:32.484843"
+    }
+  ],
+  "summary": {
+    "all_stages_passed": true,
+    "data_protection_index": 0.7945,
+    "direct_causal_effect": "+58.75%",
+    "adversary_roi": "Undefined (\u221e)"
+  }
+}

@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  cloe-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cloe-open-science-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_OPTS=-Xmx2g -Xms1g
+    volumes:
+      - ./results.json:/app/results.json:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped
+
+  cloe-web:
+    image: python:3.11-slim
+    container_name: cloe-open-science-web
+    ports:
+      - "7000:7000"
+    working_dir: /app
+    command: python3 -m http.server 7000
+    volumes:
+      - .:/app
+    depends_on:
+      - cloe-backend
+    restart: unless-stopped
+
+  cloe-evaluator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cloe-open-science-evaluator
+    working_dir: /app
+    command: python3 evaluate.py
+    volumes:
+      - .:/app
+    depends_on:
+      - cloe-backend
+    stdin_open: true
+    tty: true
+    restart: "no"
+
+networks:
+  default:
+    name: cloe-network
