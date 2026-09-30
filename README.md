@@ -1,4 +1,4 @@
-# 🐉 CLOE Open Science Artifact
+# CLOE Open Science Artifact
 ## Causal Learning in Offline and Online Environments
 
 **For IEEE SaTML Conference - Double-Blind Peer Review**
@@ -17,12 +17,9 @@ docker build -t cloe-open-science .
 
 # Run the three-stage evaluation
 docker run -it cloe-open-science python3 evaluate.py
-
-# View web results (in another terminal)
-docker run -p 7000:7000 -v $(pwd):/app cloe-open-science python3 -m http.server 7000
 ```
 
-Then open: **http://localhost:7000**
+Results will be displayed in the terminal and saved to results.json.
 
 ### Option 2: Local Python
 
@@ -32,12 +29,9 @@ chmod +x evaluate.py
 
 # Run the three-stage evaluation
 python3 evaluate.py
-
-# View web results
-python3 -m http.server 7000
 ```
 
-Then open: **http://localhost:7000**
+Results will be displayed in the terminal and saved to results.json.
 
 ---
 
@@ -104,9 +98,7 @@ with open('results.json') as f:
         print(f'{table}...')
 "
 
-# View all tables in web interface
-python3 -m http.server 7000
-# Open http://localhost:7000
+# All results are displayed in the terminal and saved to results.json
 ```
 
 ---
@@ -125,23 +117,23 @@ python3 -m http.server 7000
 
 ## Research Questions Answered
 
-✅ **RQ1**: Which architectural factors impact data protection most?
+ **RQ1**: Which architectural factors impact data protection most?
 - DQN speed: 47.67% impact
 - POMIS causal reasoning: 37.19% impact  
 - Deception (ε-DP): 15.14% impact
 
-✅ **RQ2**: How to safely constrain LLMs in AI harnesses?
+ **RQ2**: How to safely constrain LLMs in AI harnesses?
 - 5-layer deterministic stack
 - XML context isolation
 - AST regex verification
 - 100% prompt injection prevention
 
-✅ **RQ3**: Can ε-differential privacy neutralize adversarial reconnaissance?
+ **RQ3**: Can ε-differential privacy neutralize adversarial reconnaissance?
 - Privacy budget: ε ≈ 0.8156
 - Adversary uncertainty: 0.39 bits
 - Cost inflation: 4.62× (f=0.60)
 
-✅ **RQ4**: How to isolate causal effects in complex systems?
+ **RQ4**: How to isolate causal effects in complex systems?
 - Direct effect (DE): +58.75%
 - Indirect effect (IE): 0.00%
 - Robust to Rosenbaum bounds (Γ = 2.45)
@@ -150,13 +142,13 @@ python3 -m http.server 7000
 
 ## Artifact Evaluation Checklist
 
-- [x] **Reproducible**: All results from deterministic JSON
-- [x] **Portable**: Runs on Linux, macOS, Windows (via Docker)
-- [x] **Anonymous**: No identifying information in code or results
-- [x] **Complete**: All source code included
-- [x] **Well-documented**: README, inline comments, results dashboard
-- [x] **Available**: Open science repository with staged release plan
-- [x] **IEEE SaTML Compliant**: Meets open-science mandate
+- [x] Reproducible: All results from deterministic JSON
+- [x] Portable: Runs on Linux, macOS, Windows (via Docker)
+- [x] Anonymous: No identifying information in code or results
+- [x] Complete: All source code included
+- [x] Well-documented: README, inline comments, results file
+- [x] Available: Open science repository with staged release plan
+- [x] IEEE SaTML Compliant: Meets open-science mandate
 
 ---
 
@@ -194,7 +186,7 @@ Runnable Python script showing:
 Container specification with:
 - Maven-based Java build
 - Python evaluation environment
-- Port 8080 (backend) and 7000 (web)
+- Port 8080 (backend)
 - Ready for AEC reproduction
 
 ---
@@ -210,7 +202,6 @@ docker run -it cloe-open-science python3 evaluate.py
 ### Linux / macOS with Python
 ```bash
 python3 evaluate.py
-python3 -m http.server 7000
 ```
 
 ### Windows with Docker Desktop
@@ -222,7 +213,6 @@ docker run -it cloe-open-science python3 evaluate.py
 ### Windows Subsystem for Linux (WSL2)
 ```bash
 python3 evaluate.py
-python3 -m http.server 7000
 ```
 
 ---
@@ -260,8 +250,8 @@ This artifact is an **independent verification** run with slightly different emp
 
 3. **View results**
    ```bash
-   docker run -p 7000:7000 -v $(pwd):/app cloe-open-science python3 -m http.server 7000
-   # Open http://localhost:7000
+   
+   # Open results.json
    ```
 
 4. **Verify data**
@@ -278,11 +268,11 @@ This artifact is an **independent verification** run with slightly different emp
 
 ### Success Criteria
 
-- ✅ All three stages complete without errors
-- ✅ Results match results.json exactly
-- ✅ Web dashboard loads and displays tables
-- ✅ No external network dependencies
-- ✅ Runs on evaluator's system without modification
+-  All three stages complete without errors
+-  Results match results.json exactly
+-  All results displayed in terminal output
+-  No external network dependencies
+-  Runs on evaluator's system without modification
 
 ---
 
@@ -322,5 +312,5 @@ Upon acceptance, full attribution and licensing information will be provided.
 
 **Last Updated**: 2026-09-29  
 **Artifact Status**: Ready for IEEE SaTML AEC Evaluation  
-**Reproducibility**: ✓ Fully Reproducible  
-**Anonymous**: ✓ Yes  
+**Reproducibility**: Fully Reproducible  
+**Anonymous**: Yes  

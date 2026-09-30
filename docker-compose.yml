@@ -20,19 +20,6 @@ services:
       start_period: 30s
     restart: unless-stopped
 
-  cloe-web:
-    image: python:3.11-slim
-    container_name: cloe-open-science-web
-    ports:
-      - "7000:7000"
-    working_dir: /app
-    command: python3 -m http.server 7000
-    volumes:
-      - .:/app
-    depends_on:
-      - cloe-backend
-    restart: unless-stopped
-
   cloe-evaluator:
     build:
       context: .

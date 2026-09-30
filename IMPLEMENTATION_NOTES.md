@@ -2,7 +2,7 @@
 
 ## Operational Components
 
-### ✅ REAL (Not Simulated)
+### REAL (Not Simulated)
 
 #### Stage 1: DQN Training (Offline Learning)
 - **Real Deep Q-Network** with actual Q-learning updates
@@ -48,7 +48,7 @@
 
 ---
 
-### ⚙️ SIMULATED (By Design)
+### SIMULATED (By Design)
 
 #### Attack Simulation (Stage 4)
 - **30-day attack simulation** against real WAF rules
@@ -75,7 +75,7 @@ DQN Training Summary:
 ├─ Epochs:          5
 ├─ Mean TD error:   32.71
 ├─ Final TD error:  45.77
-├─ Convergence:     ✓ Stable
+├─ Convergence:     Stable
 └─ Learning rate:   0.001
 
 POMIS Summary:
@@ -120,11 +120,11 @@ Generating actual ModSecurity-compatible rules proves the system can produce dep
 ## Reproducibility
 
 All components produce deterministic results:
-- ✅ DQN training: Same initialization seed produces same Q-values
-- ✅ POMIS: Deterministic pruning based on efficacy threshold
-- ✅ Risk Convergence: Deterministic greedy optimization
-- ✅ WAF generation: Deterministic rule templates
-- ✅ Attack simulation: Deterministic block/breach outcomes
+-  DQN training: Same initialization seed produces same Q-values
+-  POMIS: Deterministic pruning based on efficacy threshold
+-  Risk Convergence: Deterministic greedy optimization
+-  WAF generation: Deterministic rule templates
+-  Attack simulation: Deterministic block/breach outcomes
 
 Run `python3 cloe_real.py` multiple times - results will be identical.
 
